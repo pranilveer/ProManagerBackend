@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const authenticateUser = require("../middleware/authMiddleware");
 
 // Register a new user
@@ -82,3 +81,5 @@ router.put("/users/profile", authenticateUser, async (req, res) => {
     res.status(500).json({ error: "Profile update failed" });
   }
 });
+
+module.exports = router;
